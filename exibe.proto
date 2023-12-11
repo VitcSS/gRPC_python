@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+service DisplayServer {
+    rpc exibe (ExibeRequest) returns (ExibeResponse);
+    rpc termina (TerminaRequest) returns (TerminaResponse);
+}
+
+message ExibeRequest {
+    string msg = 1;
+    string origem = 2;
+}
+
+message ExibeResponse {
+    int32 status = 1;
+}
+
+message TerminaRequest {}
+
+message TerminaResponse {
+    int32 status = 1;
+}

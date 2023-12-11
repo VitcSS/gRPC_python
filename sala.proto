@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+service ChatRoom {
+    rpc registra_entrada (RegistroEntradaRequest) returns (RegistroEntradaResponse);
+    rpc registra_saida (RegistroSaidaRequest) returns (RegistroSaidaResponse);
+    rpc lista (ListaRequest) returns (ListaResponse);
+    rpc finaliza_registro (FinalizaRegistroRequest) returns (FinalizaRegistroResponse);
+    rpc termina (TerminaRequest) returns (TerminaResponse);
+    rpc envia (EnviaRequest) returns (EnviaResponse);
+}
+
+message RegistroEntradaRequest {
+    string id = 1;
+}
+
+message RegistroEntradaResponse {
+    int32 numero_programas = 1;
+}
+
+message RegistroSaidaRequest {
+    string id = 1;
+    string fqdn = 2;
+    int32 port = 3;
+}
+
+message RegistroSaidaResponse {
+    int32 numero_programas = 1;
+}
+
+message ListaRequest {}
+
+message ListaResponse {
+    repeated string programas = 1;
+}
+
+message FinalizaRegistroRequest {}
+
+message FinalizaRegistroResponse {
+    bool terminado = 1;
+}
+
+message TerminaRequest {}
+
+message TerminaResponse {
+    bool terminado = 1;
+}
+
+message EnviaRequest {
+    string msg = 1;
+    string destino = 2;
+}
+
+message EnviaResponse {
+    int32 vezes_enviada = 1;
+}
